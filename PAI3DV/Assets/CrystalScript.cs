@@ -14,7 +14,6 @@ public class CrystalScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Vector3.Distance(player.position, transform.position));
         if (Vector3.Distance(player.position, transform.position) <= 20f)
         {
             crystalMat.color = Color.yellow;

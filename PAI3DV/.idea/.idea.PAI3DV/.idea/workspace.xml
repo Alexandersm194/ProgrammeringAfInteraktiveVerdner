@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9842607e-3b14-4a41-8582-499e7ab29697" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PAI3DV/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PAI3DV/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CrystalScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CrystalScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GateOpeningScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GateOpeningScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/crystal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/crystal.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +112,8 @@
       <workItem from="1759386022994" duration="13430000" />
       <workItem from="1759410329628" duration="1164000" />
       <workItem from="1759431639347" duration="9414000" />
+      <workItem from="1759663097303" duration="1149000" />
+      <workItem from="1759664343503" duration="3952000" />
     </task>
     <servers />
   </component>

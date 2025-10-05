@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
         
-        //Falling down
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
@@ -99,7 +98,6 @@ public class PlayerMovement : MonoBehaviour
 
         float turnSpeed = Mathf.Lerp(1f, 0.5f, Time.deltaTime * velocity.magnitude * 10f);
         
-            
         if (x != 0)
         {
             if (z < 0)
