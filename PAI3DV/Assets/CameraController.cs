@@ -11,25 +11,64 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
     
     public GameObject camera;
-    private Camera cam;
+    private Camera mainCam;
+    [SerializeField] private Camera gunCam;
+    [SerializeField] private GunScript gunScript;
+    [SerializeField] private UIScript uiScript;
+
+    private enum CameraState
+    {
+        main, gun
+    }
     
+    private CameraState state = CameraState.main;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         camera.transform.position = offset + gameObject.transform.position;
         camera.transform.LookAt(gameObject.transform.position);
-        cam = camera.GetComponent<Camera>();
+        mainCam = camera.GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveCamera();
+        UpdateCam();
         
         if(Input.GetAxis("Mouse ScrollWheel") != 0) ScrollCamera();
         
+        if (Input.GetMouseButton(1))
+        {
+            state = CameraState.gun;
+        }
+        else
+        {
+            state = CameraState.main;
+        }
+        
+        
+        
     }
 
+    private void UpdateCam()
+    {
+        switch (state)
+        {
+            case CameraState.main:
+                uiScript.ActivateDrivingUI();
+                gunCam.gameObject.SetActive(false);
+                mainCam.gameObject.SetActive(true);
+                gunScript.isActive = false;
+                MoveCamera();
+                break;
+            case CameraState.gun:
+                uiScript.ActivateGunUI();
+                gunCam.gameObject.SetActive(true);
+                mainCam.gameObject.SetActive(false);
+                gunScript.isActive = true;
+                break;
+        }
+    }
     private void ScrollCamera()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)

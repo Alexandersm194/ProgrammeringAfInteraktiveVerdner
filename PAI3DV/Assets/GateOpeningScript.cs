@@ -71,4 +71,20 @@ public class GateOpeningScript : MonoBehaviour
         leftT = Mathf.Clamp01(leftT);
         rightT = Mathf.Clamp01(rightT);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            state = GateState.Opening;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            state = GateState.Closing;
+        }
+    }
 }
