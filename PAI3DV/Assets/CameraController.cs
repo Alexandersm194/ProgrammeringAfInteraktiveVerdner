@@ -45,6 +45,11 @@ public class CameraController : MonoBehaviour
         {
             state = CameraState.main;
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            gunScript.SetRotation();
+        }
         
         
         
