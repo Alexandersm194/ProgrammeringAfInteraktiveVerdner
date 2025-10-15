@@ -2,38 +2,38 @@ using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
-    
-    public float mouseSensitivity = 100f;
+    [Header("Input Settings")]
+    [SerializeField] private float mouseSensitivity = 100f;
     float xRotation = 0f;
     float yRotation = 0f;
+    
+    
     public bool isActive = false;
 
+    [Header("Camera Settings")]
     [SerializeField] private Camera cam;
     [SerializeField] private Camera mainCamera;
+    
+    
+    [Header("Effect settings")]
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private AudioSource gunSound;
+    [SerializeField] private GameObject impactEffect;
     
+    [Header("Gun states")]
     [SerializeField] private float fireRate = 15f;
-    private float nextFire = 0f;
-    
     [SerializeField] private float damage = 10f;
     
+    private float nextFire = 0f;
     
     
-    
-    [SerializeField] private GameObject impactEffect;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+   
 
     public void SetRotation()
     {
         transform.rotation = Quaternion.Euler(0f, mainCamera.transform.eulerAngles.y, 0f);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -68,6 +68,7 @@ public class GunScript : MonoBehaviour
     {
         if(gunSound.isPlaying == false) gunSound.Play();
         muzzleFlash.Play();
+        
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit))
         {
@@ -82,4 +83,5 @@ public class GunScript : MonoBehaviour
         }
         
     }
+    
 }

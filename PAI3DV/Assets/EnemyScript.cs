@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    [Header("Enemy Stats")]
     [SerializeField] private float health = 100f;
+    
+    [Header("Animations")]
     [SerializeField] private Animator anim;
     [SerializeField] private AnimationClip clip;
 

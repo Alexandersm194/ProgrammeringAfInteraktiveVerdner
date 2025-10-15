@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;
-    
+    [Header("Input")]
     public float mouseSensitivity = 100f;
     float xRotation = 0f;
     float yRotation = 0f;
-
-    public Vector3 offset;
+    [SerializeField] private Vector3 offset;
     
-    public GameObject camera;
-    private Camera mainCam;
+    
+    [Header("Cameras")]
+    [SerializeField] private GameObject camera;
     [SerializeField] private Camera gunCam;
+    private Camera mainCam;
+    
+    [Header("Used Scripts")]
     [SerializeField] private GunScript gunScript;
     [SerializeField] private UIScript uiScript;
 
@@ -22,15 +24,14 @@ public class CameraController : MonoBehaviour
     }
     
     private CameraState state = CameraState.main;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         camera.transform.position = offset + gameObject.transform.position;
         camera.transform.LookAt(gameObject.transform.position);
         mainCam = camera.GetComponent<Camera>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         UpdateCam();

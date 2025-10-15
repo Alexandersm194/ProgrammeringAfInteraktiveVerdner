@@ -7,29 +7,31 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
     
-
-    public float speed = 5f;
-    public float gravity = -9.81f * 2;
-    public float jumpHeight = 3f;
     
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-    public bool isActive = true;
+    [Header("Physics")]
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float gravity = -9.81f * 2;
+    [SerializeField] private float jumpHeight = 3f;
+    
+    [Header("Ground Checking")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundDistance = 0.4f;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private bool isActive = true;
     
     Vector3 velocity;
     
     bool isGrounded;
     bool isMoving;
 
-    public ParticleSystem[] dustParticles;
-    public TrailRenderer[] wheelTrails;
+    [Header("Effects")]
+    [SerializeField] private ParticleSystem[] dustParticles;
+    [SerializeField] private TrailRenderer[] wheelTrails;
     
     private Vector3 lastPosition = new Vector3(0f, 0f, 0f);
-    // Start is called before the first frame update
+    
     void Start()
     {
-        // Locking cursor
         Cursor.lockState = CursorLockMode.Locked;
         
         controller = GetComponent<CharacterController>();

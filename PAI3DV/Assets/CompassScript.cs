@@ -5,11 +5,11 @@ using Vector3 = UnityEngine.Vector3;
 
 public class CompassScript : MonoBehaviour
 {
-    public Transform Player;
+    [SerializeField] private Transform Player;
 
-    public Transform Target;
+    [SerializeField] private Transform Target;
 
-    public Transform CompassPointer;
+    [SerializeField] private Transform CompassPointer;
     
     
     void Update()

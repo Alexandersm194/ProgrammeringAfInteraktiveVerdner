@@ -3,19 +3,24 @@ using UnityEngine;
 
 public class GateOpeningScript : MonoBehaviour
 {
-    public GameObject GateLeft;
-    public GameObject GateRight;
+    [Header("Gate Objects")]
+    [SerializeField] private  GameObject GateLeft;
+    [SerializeField] private  GameObject GateRight;
 
-    public float openRange = 90f;  
-    public float openSpeed = 1f;    
+    [Header("Rotation adjustments")]
+    [SerializeField] private float openRange = 90f;  
+    [SerializeField] private float openSpeed = 1f;    
     
 
     private float leftT = 0f;
     private float rightT = 0f;
 
+    
+    // Gate states
     private enum GateState { Open, Closed, Opening, Closing }
     private GateState state = GateState.Closed;
-
+    
+    // Desired Gate Rotations:
     private Quaternion leftClosedRot;
     private Quaternion rightClosedRot;
     private Quaternion leftOpenRot;
