@@ -34,22 +34,22 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        //Move();
         DrivingEffects();
         GroundedCheck();
-        ApplyGravity();
-        MovingCheck();
+        //ApplyGravity();
+        //MovingCheck();
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            Jump();
+            //Jump();
         }
         
     }
