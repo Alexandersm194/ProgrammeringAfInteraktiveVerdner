@@ -17,7 +17,7 @@ public class EnvironmentCollision : MonoBehaviour
 
     IEnumerator Fall(Rigidbody rb)
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         rb.freezeRotation = false;
         rb.AddTorque(Vector3.forward * 500f, ForceMode.Force);
     }
