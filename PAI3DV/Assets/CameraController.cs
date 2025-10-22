@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -7,6 +8,7 @@ public class CameraController : MonoBehaviour
     float xRotation = 0f;
     float yRotation = 0f;
     [SerializeField] private Vector3 offset;
+    [SerializeField] private GameObject target;
     
     
     [Header("Cameras")]
@@ -17,6 +19,15 @@ public class CameraController : MonoBehaviour
     [Header("Used Scripts")]
     [SerializeField] private GunScript gunScript;
     [SerializeField] private UIScript uiScript;
+    
+    private const float YMin = -10.0f;
+    private const float YMax = 45.0f;
+
+    public Transform lookAt;
+
+    public float distance = 10.0f;
+    private float currentX = 0.0f;
+    private float currentY = 0.0f;
 
     private enum CameraState
     {
@@ -55,7 +66,6 @@ public class CameraController : MonoBehaviour
         
         
     }
-
     private void UpdateCam()
     {
         switch (state)
@@ -79,23 +89,36 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            camera.transform.localPosition = camera.transform.localPosition + new Vector3(0f, 0f, 2f);
+            distance += 2f;
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            camera.transform.localPosition = camera.transform.localPosition - new Vector3(0f, 0f, 2f);
+            distance -= 2f;
         }
     }
 
     private void MoveCamera()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
+        /*float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
         
         xRotation -= mouseY;
         yRotation += mouseX;
         
         xRotation = Mathf.Clamp(xRotation, -10f, 45f);
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);*/
+        
+        currentX += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        currentY += Input.GetAxis("Mouse Y") * -mouseSensitivity * Time.deltaTime;
+
+        currentY = Mathf.Clamp(currentY, YMin, YMax);
+
+        Vector3 Direction = new Vector3(0, 0, -distance);
+        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+        camera.transform.position = lookAt.position + rotation * Direction;
+
+        camera.transform.LookAt(lookAt.position);
+        
+        
     }
 }

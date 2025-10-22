@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9842607e-3b14-4a41-8582-499e7ab29697" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PAI3DV/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PAI3DV/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CarMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CarMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnvironmentCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnvironmentCollision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +122,7 @@
       <workItem from="1760121184636" duration="3820000" />
       <workItem from="1761031274145" duration="9407000" />
       <workItem from="1761075481200" duration="6052000" />
+      <workItem from="1761140122672" duration="1323000" />
     </task>
     <servers />
   </component>

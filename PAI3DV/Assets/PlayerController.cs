@@ -41,16 +41,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move();
         DrivingEffects();
         GroundedCheck();
-        //ApplyGravity();
         //MovingCheck();
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            //Jump();
-        }
         
     }
 
@@ -67,18 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         lastPosition = gameObject.transform.position;
     }
-    private void ApplyGravity()
-    {
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-        
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
-        
-    }
+    
 
     private void GroundedCheck()
     {
