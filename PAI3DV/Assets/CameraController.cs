@@ -20,8 +20,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private GunScript gunScript;
     [SerializeField] private UIScript uiScript;
     
-    private const float YMin = -10.0f;
-    private const float YMax = 45.0f;
+    [SerializeField] private float YMin = -45.0f;
+    [SerializeField] private float YMax = 10.0f;
 
     public Transform lookAt;
 
