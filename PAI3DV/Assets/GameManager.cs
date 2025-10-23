@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator logoFadeAnim;
     [SerializeField] private AnimationClip fadeClip;
     [SerializeField] private GameObject StartScreen;
+    [SerializeField] private AudioSource engineAudio;
 
     void Start()
     {
@@ -23,16 +24,16 @@ public class GameManager : MonoBehaviour
 
     public void BeginGame()
     {
+        engineAudio.Play();
+        Cursor.lockState = CursorLockMode.Locked;
+        EngineButton.gameObject.SetActive(false);
         StartCoroutine(RemoveStartScreen());
-        
     }
     
 
     
     IEnumerator RemoveStartScreen()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        EngineButton.gameObject.SetActive(false);
         screenFadeAnim.SetTrigger("Fade");
         logoFadeAnim.SetTrigger("Fade");
         yield return new WaitForSeconds(fadeClip.length);
