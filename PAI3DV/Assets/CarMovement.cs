@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float steerAngle = 45;
     [SerializeField] private float radius = 6f;
     [SerializeField] private float maxSpeed = 100f;
+    [SerializeField] private float KPH = 100;
     private float horizontal;
     private float vertical;
     private Rigidbody rb;
@@ -68,8 +70,9 @@ public class CarMovement : MonoBehaviour
     private void Drive()
     {
         float speed = rb.linearVelocity.sqrMagnitude;
+        KPH = rb.linearVelocity.magnitude * 3.6f;
         Debug.Log(speed);
-        if(speed < maxSpeed)
+        if(KPH < maxSpeed)
         {
             if (drive == driveState.allWheelDrive)
             {
@@ -119,6 +122,11 @@ public class CarMovement : MonoBehaviour
     {
         rb.AddForce(-transform.up * downforceValue * rb.linearVelocity.magnitude);
     }
-    
+
+    public int GetKPH()
+    {
+        float KPHFloor = math.floor(KPH);
+        return System.Convert.ToInt32(KPHFloor);
+    }
     
 }
