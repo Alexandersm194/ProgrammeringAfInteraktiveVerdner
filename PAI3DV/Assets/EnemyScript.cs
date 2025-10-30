@@ -18,4 +18,12 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject, clip.length * 2);
         }
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            anim.SetTrigger("Jump");
+        }
+    }
 }
