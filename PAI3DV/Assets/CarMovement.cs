@@ -38,8 +38,6 @@ public class CarMovement : MonoBehaviour
         Drive();
         for (int i = 0; wheels.Length > i; i++)
         {
-            //wheel_col[i].motorTorque = Input.GetAxis("Vertical") * torque;
-
             var pos = transform.position;
             var rot = transform.rotation;
             wheel_col[i].GetWorldPose(out pos, out rot);
@@ -69,9 +67,7 @@ public class CarMovement : MonoBehaviour
 
     private void Drive()
     {
-        float speed = rb.linearVelocity.sqrMagnitude;
         KPH = rb.linearVelocity.magnitude * 3.6f;
-        Debug.Log(speed);
         if(KPH < maxSpeed)
         {
             if (drive == driveState.allWheelDrive)

@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9842607e-3b14-4a41-8582-499e7ab29697" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PAI3DV/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PAI3DV/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemyScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CarMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CarMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Physics Material.physicMaterial" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Physics Material.physicMaterial.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-Terrain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-Terrain.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-Terrain.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-Terrain.asset.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +132,7 @@
       <workItem from="1761201756011" duration="5953000" />
       <workItem from="1761235697075" duration="3408000" />
       <workItem from="1761815059613" duration="1998000" />
+      <workItem from="1762846060452" duration="4712000" />
     </task>
     <servers />
   </component>
