@@ -99,15 +99,6 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
-        /*float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        
-        xRotation -= mouseY;
-        yRotation += mouseX;
-        
-        xRotation = Mathf.Clamp(xRotation, -10f, 45f);
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);*/
-        
         currentX += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         currentY += Input.GetAxis("Mouse Y") * -mouseSensitivity * Time.deltaTime;
 
