@@ -11,41 +11,30 @@ public class BaseGate : MonoBehaviour
     [SerializeField] private Transform gateLeftOpen;
 
 
-    private enum State
-    {
-        Open, Closed
-    }
-    
-    [SerializeField] private State gateState = State.Closed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float openSpeed = 1f;    
+    private bool open = false;
 
-    // Update is called once per frame
+    private float leftT = 0f;
+    private float rightT = 0f;
+
+    public void OpenGate()
+    {
+        open = true;
+    }
     void Update()
     {
-        MoveGate();
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(gateState == State.Open) gateState = State.Closed;
-            else if(gateState == State.Closed) gateState = State.Open;
-        }
+        if(open){MoveGate();}
     }
 
-    void MoveGate()
+    public void MoveGate()
     {
-        switch (gateState)
-        {
-            case State.Open:
-                gateRight.transform.position = gateRightClosed.position;
-                gateLeft.transform.position = gateLeftClosed.position;
-                break;
-            case State.Closed:
-                gateRight.transform.position = gateRightOpen.position;
-                gateLeft.transform.position = gateLeftOpen.position;
-                break;
-        }
+        leftT += openSpeed * Time.deltaTime;
+        rightT += openSpeed * Time.deltaTime;
+                
+        gateRight.transform.position = Vector3.Lerp(gateRightClosed.transform.position, gateRightOpen.transform.position, rightT);
+        gateLeft.transform.position = Vector3.Lerp(gateLeftClosed.transform.position, gateLeftOpen.transform.position, leftT);
+        
+        leftT = Mathf.Clamp01(leftT);
+        rightT = Mathf.Clamp01(rightT);
     }
 }

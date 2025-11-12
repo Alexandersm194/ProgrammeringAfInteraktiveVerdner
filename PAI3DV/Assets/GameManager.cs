@@ -4,22 +4,28 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Scripts")]
+    [SerializeField] private BaseGate baseGate;
+    
     [SerializeField] private Button EngineButton;
     [SerializeField] private Animator screenFadeAnim;
     [SerializeField] private Animator logoFadeAnim;
     [SerializeField] private AnimationClip fadeClip;
     [SerializeField] private GameObject StartScreen;
     [SerializeField] private AudioSource engineAudio;
+    
+    [SerializeField] private GameObject[] friendlyCars;
 
+
+    private enum GameState
+    {
+        Paused, Intro, DriveToCanyon, BikerAttack, FuelUp, RamTruckAttack, End
+    }
+    
+    [SerializeField] private GameState gameState = GameState.Paused;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void BeginGame()
@@ -28,6 +34,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         EngineButton.gameObject.SetActive(false);
         StartCoroutine(RemoveStartScreen());
+        StartCoroutine(Intro());
     }
     
 
@@ -40,6 +47,49 @@ public class GameManager : MonoBehaviour
         StartScreen.SetActive(false);
         
     }
+
+    IEnumerator Intro()
+    {
+        yield return new WaitForSeconds(5f);
+        baseGate.OpenGate();
+        yield return new WaitForSeconds(2f);
+        DriveToCanyon();
+    }
+
+    public void DriveToCanyon()
+    {
+        foreach (GameObject car in friendlyCars)
+        {
+            FriendlyAI friendlyAI = car.GetComponent<FriendlyAI>();
+            friendlyAI.SetCurrentTarget();
+        }
+    }
+    
+    public void BikerAttack()
+    {
+        
+    }
+
+    IEnumerator FuelUp()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+
+    public void RamTruckAttack()
+    {
+        
+    }
+    
+    IEnumerator End()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+    
+    
+    
+    
+    
+    
     
     
 }

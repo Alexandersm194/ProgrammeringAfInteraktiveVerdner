@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -47,6 +48,11 @@ public class CarMovement : MonoBehaviour
 
         if (Input.anyKeyDown)
         {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Reset();
+            }
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 foreach (var i in wheel_col)
@@ -124,5 +130,10 @@ public class CarMovement : MonoBehaviour
         float KPHFloor = math.floor(KPH);
         return System.Convert.ToInt32(KPHFloor);
     }
-    
+
+    private void Reset()
+    {
+        transform.position = transform.position + new Vector3(0, 2f, 0);
+        transform.localRotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0); 
+    }
 }
