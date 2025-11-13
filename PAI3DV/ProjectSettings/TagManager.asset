@@ -8,6 +8,7 @@ TagManager:
   - Tree
   - Ram Truck
   - Waypoint
+  - Factory
   layers:
   - Default
   - TransparentFX

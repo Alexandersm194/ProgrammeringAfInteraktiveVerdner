@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource engineAudio;
     
     [SerializeField] private GameObject[] friendlyCars;
+    
+    [Header("UI Elements")]
+    [SerializeField] private GameObject factoryCanvas;
+    [SerializeField] private TextMeshProUGUI fuelText;
 
 
     private enum GameState
@@ -70,9 +75,20 @@ public class GameManager : MonoBehaviour
         
     }
 
-    IEnumerator FuelUp()
+    public void FactoryEvent()
     {
+        StartCoroutine(FuelUp());
+    }
+
+    private IEnumerator FuelUp()
+    {
+        factoryCanvas.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        fuelText.text = "Fuel Completed!";
         yield return new WaitForSeconds(2f);
+        fuelText.text = "Return to Base!";
+        yield return new WaitForSeconds(2f);
+        factoryCanvas.SetActive(false);
     }
 
     public void RamTruckAttack()
