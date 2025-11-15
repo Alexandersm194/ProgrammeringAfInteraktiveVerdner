@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -7,23 +9,36 @@ public class EnemyScript : MonoBehaviour
     
     [Header("Animations")]
     [SerializeField] private Animator anim;
-    [SerializeField] private AnimationClip clip;
 
+
+    [SerializeField] private bool isMoving;
+    [SerializeField] private GameObject spine;
+
+
+    [SerializeField] private NavMeshAgent agent;
+    
+    private GameObject player;
+    
+    private Transform target;
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (health <= 0)
-        {
-            anim.SetTrigger("Die");
-            Destroy(gameObject, clip.length * 2);
-        }
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            anim.SetTrigger("Jump");
-        }
+        agent.SetDestination(target.position);
+        spine.transform.LookAt(player.transform.position);
+        isMoving = agent.remainingDistance > agent.stoppingDistance;
+        anim.SetBool("IsMoving", isMoving);
     }
 }
