@@ -10026,12 +10026,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a397858bfdc87e49aa1dbf37cd0a5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExplosionDamage: 100
   playerTarget: {fileID: 0}
   explosionParticles:
   - {fileID: 7458090766268772760}
   - {fileID: 1489079978767476908}
   - {fileID: 3688996640811374549}
   - {fileID: 4776588419729269605}
+  playerAttributes: {fileID: 0}
 --- !u!65 &3648158601743987483
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10076,7 +10078,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
