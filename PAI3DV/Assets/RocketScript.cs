@@ -12,6 +12,7 @@ public class RocketScript : MonoBehaviour
             Explode(other.gameObject);
         }
         Destroy(gameObject);
+        
     }
 
 

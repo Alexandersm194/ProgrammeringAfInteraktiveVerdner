@@ -4,7 +4,7 @@ using UnityEngine;
 public class RocketLauncher : MonoBehaviour
 {
     [SerializeField] private float fireRate = 2f;
-    private float rate = 2f;
+    [SerializeField] private float rate = 2f;
     [SerializeField] private float rocketLaunchForce = 1000f;
     [SerializeField] private GameObject rocketPrefab;
 

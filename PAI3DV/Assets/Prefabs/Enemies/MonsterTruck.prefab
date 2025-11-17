@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5776777909278183351}
   - component: {fileID: 7458090766268772760}
   - component: {fileID: 276936401342391242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 8063214807644555752}
   - component: {fileID: 267144699569992412}
   - component: {fileID: 332604144428986695}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5040,7 +5040,7 @@ GameObject:
   - component: {fileID: 370872452903720793}
   - component: {fileID: 3688996640811374549}
   - component: {fileID: 8715466753574332813}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9920,6 +9920,54 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &1156618772584085464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803310870884428680}
+  - component: {fileID: 6286143250810253332}
+  m_Layer: 8
+  m_Name: Canon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1803310870884428680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156618772584085464}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.055, z: 3.13}
+  m_LocalScale: {x: 0.71093416, y: 0.71093416, z: 0.71093416}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2213603552035166747}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6286143250810253332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156618772584085464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50423a1bc123814da7e525722055e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 2
+  rate: 2
+  rocketLaunchForce: 1000
+  rocketPrefab: {fileID: 5202248008258695059, guid: 0354d1d1250e87f44997280d8927b2d2, type: 3}
 --- !u!1 &2674894718941868409
 GameObject:
   m_ObjectHideFlags: 0
@@ -9931,12 +9979,12 @@ GameObject:
   - component: {fileID: 2213603552035166747}
   - component: {fileID: 886911304349752104}
   - component: {fileID: 507368739186491990}
-  - component: {fileID: 7414472162212346378}
   - component: {fileID: 3648158601743987483}
   - component: {fileID: 2913042594595306467}
   - component: {fileID: 9123362389658345890}
-  m_Layer: 0
-  m_Name: Monster truck
+  - component: {fileID: 439909835113615757}
+  m_Layer: 8
+  m_Name: MonsterTruck
   m_TagString: Ram Truck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9958,7 +10006,7 @@ Transform:
   - {fileID: 8036442815746140568}
   - {fileID: 6844486279958938079}
   - {fileID: 1422117099463139219}
-  - {fileID: 7437417541487455865}
+  - {fileID: 1803310870884428680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &886911304349752104
@@ -10014,26 +10062,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7414472162212346378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2674894718941868409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a397858bfdc87e49aa1dbf37cd0a5bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionDamage: 100
-  playerTarget: {fileID: 0}
-  explosionParticles:
-  - {fileID: 7458090766268772760}
-  - {fileID: 1489079978767476908}
-  - {fileID: 3688996640811374549}
-  - {fileID: 4776588419729269605}
-  playerAttributes: {fileID: 0}
 --- !u!65 &3648158601743987483
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10096,7 +10124,7 @@ NavMeshAgent:
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 20
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -10104,6 +10132,26 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &439909835113615757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2674894718941868409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3b0a15f3d906e4b8c953c286bd13ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExplosionDamage: 100
+  playerTarget: {fileID: 0}
+  explosionParticles:
+  - {fileID: 7458090766268772760}
+  - {fileID: 1489079978767476908}
+  - {fileID: 3688996640811374549}
+  - {fileID: 4776588419729269605}
+  playerAttributes: {fileID: 0}
 --- !u!1 &4121956113563645337
 GameObject:
   m_ObjectHideFlags: 0
@@ -10113,7 +10161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1422117099463139219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10151,7 +10199,7 @@ GameObject:
   - component: {fileID: 6947176654717910137}
   - component: {fileID: 6713944995418259867}
   - component: {fileID: 1696636456806593634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10290,7 +10338,7 @@ GameObject:
   - component: {fileID: 5528393764131367408}
   - component: {fileID: 120092292883467821}
   - component: {fileID: 6034955121781756756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SirenLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10412,7 +10460,7 @@ GameObject:
   - component: {fileID: 3307711767695889507}
   - component: {fileID: 4776588419729269605}
   - component: {fileID: 3105182958627069439}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15304,7 +15352,7 @@ GameObject:
   - component: {fileID: 3137859007727623684}
   - component: {fileID: 8211582754916685488}
   - component: {fileID: 5379058888821115809}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15443,7 +15491,7 @@ GameObject:
   - component: {fileID: 5750186859553752676}
   - component: {fileID: 4818083606948025334}
   - component: {fileID: 5441453193564332779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SirenLight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15554,93 +15602,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 300
---- !u!1 &7438871179401911427
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7437417541487455865}
-  - component: {fileID: 7443536865713154075}
-  - component: {fileID: 7452455574672590091}
-  m_Layer: 0
-  m_Name: cistern
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7437417541487455865
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438871179401911427}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.69, z: 1.856}
-  m_LocalScale: {x: -0.32581273, y: -0.34646666, z: -0.32581273}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2213603552035166747}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &7443536865713154075
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438871179401911427}
-  m_Mesh: {fileID: 4300000, guid: 48d3cd2860864984a8eadef01951d3c8, type: 3}
---- !u!23 &7452455574672590091
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438871179401911427}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 4294967295
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 6dfb2e848b31125459c73caebd5d983a, type: 2}
-  - {fileID: 2100000, guid: 8ae875f54318ded47962f50d33b8cb08, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8084053211683299860
 GameObject:
   m_ObjectHideFlags: 0
@@ -15653,7 +15614,7 @@ GameObject:
   - component: {fileID: 1338058161018274058}
   - component: {fileID: 2618787564478928155}
   - component: {fileID: 2707412447089670703}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15790,7 +15751,7 @@ GameObject:
   - component: {fileID: 5825588468762140986}
   - component: {fileID: 1489079978767476908}
   - component: {fileID: 9076835740455042230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
