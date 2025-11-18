@@ -9,10 +9,13 @@ public class RocketLauncher : MonoBehaviour
     [SerializeField] private GameObject rocketPrefab;
 
     private GameObject target;
+    
+    private AudioSource shootSound;
 
 
     void Start()
     {
+        shootSound = GetComponent<AudioSource>();
         target = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
@@ -30,6 +33,7 @@ public class RocketLauncher : MonoBehaviour
 
     private void FireRocket()
     {
+        shootSound.Play();
         GameObject rocket = Instantiate(rocketPrefab, transform.position, transform.rotation);
         Rigidbody rb = rocket.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * rocketLaunchForce, ForceMode.Force);

@@ -6,9 +6,6 @@ public class EnemyScript : MonoBehaviour
 {
     [Header("Enemy Stats")]
     [SerializeField] private float health = 100f;
-    
-    [Header("Animations")]
-    [SerializeField] private Animator anim;
 
 
     [SerializeField] private bool isMoving;
@@ -23,6 +20,7 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        SetTarget(player.transform);
     }
     public void TakeDamage(float damage)
     {
@@ -39,6 +37,5 @@ public class EnemyScript : MonoBehaviour
         agent.SetDestination(target.position);
         spine.transform.LookAt(player.transform.position);
         isMoving = agent.remainingDistance > agent.stoppingDistance;
-        anim.SetBool("IsMoving", isMoving);
     }
 }

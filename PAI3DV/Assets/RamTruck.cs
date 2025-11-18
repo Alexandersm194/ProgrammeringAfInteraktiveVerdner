@@ -12,7 +12,8 @@ public class RamTruck : MonoBehaviour
     [SerializeField] private GameObject playerTarget;
     private NavMeshAgent agent;
     private Rigidbody enemyRB;
-    [SerializeField] private ParticleSystem[] explosionParticles;
+    [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private Transform explosionEffectTransform;
     
     
     [SerializeField] private PlayerAttributes playerAttributes;
@@ -46,11 +47,10 @@ public class RamTruck : MonoBehaviour
     {
         enemyRB.AddExplosionForce(1000000f, transform.position, 500f, 3f);
         agent.isStopped = true;
-        foreach (ParticleSystem par in explosionParticles)
-        {
-            par.Play();
-        }
-        StartCoroutine(WaitAndDestroy());
+        GameObject explosion = Instantiate(explosionEffect, explosionEffectTransform.position, Quaternion.identity);
+        Destroy(explosion.gameObject, 2f);
+        Destroy(gameObject);
+       // StartCoroutine(WaitAndDestroy());
     }
 
     IEnumerator WaitAndDestroy()
