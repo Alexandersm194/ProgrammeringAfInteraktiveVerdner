@@ -10083,7 +10083,7 @@ GameObject:
   - component: {fileID: 439909835113615757}
   m_Layer: 8
   m_Name: MonsterTruck
-  m_TagString: Ram Truck
+  m_TagString: Monster Truck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

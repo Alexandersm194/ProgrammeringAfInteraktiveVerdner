@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 public class SpawnMonsterTrucks : MonoBehaviour
 {
    [SerializeField] private int nrOfTrucks;
    [SerializeField] private float spawnRate;
-   [SerializeField] private GameObject truckPrefab;
+   [SerializeField] private GameObject[] truckPrefab;
 
    public void Spawn()
    {
@@ -17,7 +18,8 @@ public class SpawnMonsterTrucks : MonoBehaviour
    {
       for (int i = 0; i < nrOfTrucks; i++)
       {
-         Instantiate(truckPrefab, transform.position, Quaternion.identity);
+         int enemyType = UnityEngine.Random.Range(0, truckPrefab.Length);
+         Instantiate(truckPrefab[enemyType], transform.position, Quaternion.identity);
          yield return new WaitForSeconds(spawnRate);
       }
       StopCoroutine(SpawnTruck());

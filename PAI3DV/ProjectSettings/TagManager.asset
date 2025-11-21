@@ -9,17 +9,19 @@ TagManager:
   - Ram Truck
   - Waypoint
   - Factory
+  - AnimGrenade
+  - Monster Truck
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Terrain
   - Missiles
   - Enemies
-  - 
+  - Friendly
   - 
   - 
   - 

@@ -32,7 +32,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator bikerAnim;
 
     [Header("Triggers")] [SerializeField] private GameObject endCollider;
-
+    
+    
+    [Header("Factory Settings")]
+    [SerializeField] private TransportScript transportScript;
+    [SerializeField] private GameObject factoryEventTrigger;
+    [SerializeField] private GameObject tracktorBeamUp;
+    [SerializeField] private GameObject tracktorBeamDown;
+    [SerializeField] private AnimationClip tracktorBeamUpAnim;
+    [SerializeField] private AnimationClip tracktorBeamDownAnim;
+    private float tracktorBeamUpSpeed;
+    private float tracktorBeamDownSpeed;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)) 
@@ -67,6 +77,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        tracktorBeamUpSpeed = tracktorBeamUpAnim.length;
+        tracktorBeamDownSpeed = tracktorBeamDownAnim.length;
     }
 
     public void BeginGame()
@@ -120,15 +132,24 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator FuelUp()
     {
-        
         factoryCanvas.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        fuelText.text = "Fuel Completed!";
+        fuelText.text = "Stand by!";
         yield return new WaitForSeconds(2f);
-        fuelText.text = "Return to Base!";
+        transportScript.CrystalBoxUp();
+        fuelText.text = "Retrieving crystals!";
+        tracktorBeamUp.SetActive(true);
+        yield return new WaitForSeconds(tracktorBeamUpSpeed);
+        transportScript.FuelPodDown();
+        tracktorBeamUp.SetActive(false);
+        tracktorBeamDown.SetActive(true);
+        fuelText.text = "Delivering fuelpod!";
+        yield return new WaitForSeconds(tracktorBeamDownSpeed);
+        tracktorBeamDown.SetActive(false);
+        fuelText.text = "Transaction completed! Return to base";
+        factoryEventTrigger.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
         factoryCanvas.SetActive(false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
         RamTruckAttack();
         spawnBikers.Spawn2ndPhase();
     }
