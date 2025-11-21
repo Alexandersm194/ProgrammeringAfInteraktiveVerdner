@@ -30,7 +30,6 @@ public class PlayerBehavior : MonoBehaviour
     {
         DrivingEffects();
         GroundedCheck();
-        //MovingCheck();
         
     }
     

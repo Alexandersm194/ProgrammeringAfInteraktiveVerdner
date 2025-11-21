@@ -87,7 +87,7 @@ public class GunScript : MonoBehaviour
             if (hit.transform.CompareTag("Monster Truck"))
             {
                 var ramTruck = hit.transform.gameObject.GetComponent<MonsterTruck>();
-                ramTruck.Explode();
+                ramTruck.TakeDamage(damage);
             }
             
             GameObject impactObj = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));

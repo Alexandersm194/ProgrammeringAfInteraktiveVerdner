@@ -1,28 +1,25 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class CrystalScript : MonoBehaviour
 {
     private Material crystalMat;
-    public Transform player;
+    private Color crystalColor;
+    private Color newColor;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         crystalMat = GetComponent<MeshRenderer>().material;
+        crystalColor = crystalMat.GetColor("_EmissionColor");
+        newColor = crystalColor;
     }
 
-    void Update()
+    public void TakeDamage()
     {
-        if (Vector3.Distance(player.position, transform.position) <= 20f)
-        {
-            crystalMat.color = Color.yellow;
-            crystalMat.SetColor("_EmissionColor", Color.yellow);
-        }
-        else
-        {
-            crystalMat.color = Color.magenta;
-            crystalMat.SetColor("_EmissionColor", Color.magenta);
-        }
+        newColor = new Color(newColor.r + 0.4f, newColor.g - 0.4f, newColor.b - 0.4f, 1f);
+        crystalMat.SetColor("_EmissionColor", newColor);;
+        
     }
+    
 }

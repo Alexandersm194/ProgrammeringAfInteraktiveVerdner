@@ -1,4 +1,5 @@
 using System.Numerics;
+using TMPro;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
@@ -11,6 +12,10 @@ public class CompassScript : MonoBehaviour
 
     [SerializeField] private Transform CompassPointer;
     
+    [SerializeField] private TextMeshProUGUI ObjectiveText;
+
+    [SerializeField] private string[] objectiveText;
+    private int currentObjective = -1;
     
     void Update()
     {
@@ -27,4 +32,13 @@ public class CompassScript : MonoBehaviour
     {
         Target = newTarget;
     }
+
+    public void NewObjectiveText()
+    {
+        currentObjective++;
+        if(currentObjective >= objectiveText.Length) return;
+        ObjectiveText.text = objectiveText[currentObjective];
+    }
+    
+    
 }

@@ -48,13 +48,11 @@ public class UIScript : MonoBehaviour
 
     public void ActivateDrivingUI()
     {
-        DrivingUI.SetActive(true);
         GunUI.SetActive(false);
     }
 
     public void ActivateGunUI()
     {
-        DrivingUI.SetActive(false);
         GunUI.SetActive(true);
     }
 
@@ -65,6 +63,7 @@ public class UIScript : MonoBehaviour
 
     public void DeathScreen()
     {
+        
         Cursor.lockState = CursorLockMode.Confined;
         DeathUI.gameObject.SetActive(true);
         DeathUIAnim.SetBool("Dead", true);

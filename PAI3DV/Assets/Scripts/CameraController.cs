@@ -25,7 +25,10 @@ public class CameraController : MonoBehaviour
 
     public Transform lookAt;
 
-    public float distance = 10.0f;
+    [SerializeField] private float distance = 10.0f;
+    [SerializeField] private float maxDistance = 20.0f;
+    [SerializeField] private float minDistance = 5.0f;
+    
     private float currentX = 0.0f;
     private float currentY = 0.0f;
 
@@ -87,11 +90,11 @@ public class CameraController : MonoBehaviour
     }
     private void ScrollCamera()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && distance < maxDistance)
         {
             distance += 2f;
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0 && distance > minDistance)
         {
             distance -= 2f;
         }

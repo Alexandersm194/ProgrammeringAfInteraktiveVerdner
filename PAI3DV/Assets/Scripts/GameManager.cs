@@ -11,11 +11,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BaseGate baseGate;
     [SerializeField] private SpawnMonsterTrucks spawnMTrucks;
     [SerializeField] private SpawnBikers spawnBikers;
+    [SerializeField] private CompassScript compass;
     
     [Header("UI")]
     [SerializeField] private Button EngineButton;
     [SerializeField] private Animator screenFadeAnim;
-    [SerializeField] private Animator logoFadeAnim;
     [SerializeField] private AnimationClip fadeClip;
     [SerializeField] private GameObject StartScreen;
     [SerializeField] private AudioSource engineAudio;
@@ -26,10 +26,12 @@ public class GameManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private GameObject factoryCanvas;
     [SerializeField] private TextMeshProUGUI fuelText;
-
+    [SerializeField] private Button exitButton;
 
     [Header("Animations")]
     [SerializeField] private Animator bikerAnim;
+
+    [SerializeField] private AudioSource bikerSound;
 
     [Header("Triggers")] [SerializeField] private GameObject endCollider;
     
@@ -79,6 +81,11 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         tracktorBeamUpSpeed = tracktorBeamUpAnim.length;
         tracktorBeamDownSpeed = tracktorBeamDownAnim.length;
+        
+        exitButton.onClick.AddListener(() =>
+        {
+            Application.Quit();
+        });
     }
 
     public void BeginGame()
@@ -95,7 +102,6 @@ public class GameManager : MonoBehaviour
     IEnumerator RemoveStartScreen()
     {
         screenFadeAnim.SetTrigger("Fade");
-        logoFadeAnim.SetTrigger("Fade");
         yield return new WaitForSeconds(fadeClip.length);
         StartScreen.SetActive(false);
         
@@ -103,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Intro()
     {
+        compass.NewObjectiveText();
         yield return new WaitForSeconds(5f);
         baseGate.OpenGate();
         yield return new WaitForSeconds(2f);
@@ -116,12 +123,17 @@ public class GameManager : MonoBehaviour
             FriendlyAI friendlyAI = car.GetComponent<FriendlyAI>();
             friendlyAI.SetCurrentTarget();
         }
+        compass.SetTarget(friendlyCars[0].transform);
+        compass.NewObjectiveText();
     }
     
     public void BikerAttack()
     {
+        bikerSound.Play();
         bikerAnim.SetTrigger("Jump");
         spawnBikers.Spawn1stPhase();
+        compass.NewObjectiveText();
+        compass.SetTarget(factoryEventTrigger.transform);
     }
 
     public void FactoryEvent()
@@ -129,6 +141,7 @@ public class GameManager : MonoBehaviour
         endCollider.SetActive(true);
         StartCoroutine(FuelUp());
     }
+    
 
     private IEnumerator FuelUp()
     {
@@ -146,6 +159,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(tracktorBeamDownSpeed);
         tracktorBeamDown.SetActive(false);
         fuelText.text = "Transaction completed! Return to base";
+        compass.NewObjectiveText();
+        compass.SetTarget(baseGate.transform);
         factoryEventTrigger.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
         factoryCanvas.SetActive(false);
@@ -156,6 +171,7 @@ public class GameManager : MonoBehaviour
 
     public void RamTruckAttack()
     {
+        compass.NewObjectiveText();
         spawnMTrucks.Spawn();
     }
     
