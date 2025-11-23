@@ -29,6 +29,14 @@ public class CarMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reset();
+        }
+    }
     
     void FixedUpdate()
     {
@@ -48,10 +56,6 @@ public class CarMovement : MonoBehaviour
 
         if (Input.anyKeyDown)
         {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Reset();
-            }
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -70,6 +74,7 @@ public class CarMovement : MonoBehaviour
         }
         
     }
+
 
     private void Drive()
     {

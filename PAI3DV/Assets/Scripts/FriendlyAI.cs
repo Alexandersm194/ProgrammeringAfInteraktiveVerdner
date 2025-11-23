@@ -24,11 +24,7 @@ public class FriendlyAI : MonoBehaviour
         {
             agent.SetDestination(transform.position);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Explode();
-        }
+        
     }
 
 

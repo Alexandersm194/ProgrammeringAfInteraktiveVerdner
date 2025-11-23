@@ -93,7 +93,6 @@ public class GunScript : MonoBehaviour
             GameObject impactObj = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactObj, 2f);
         }
-        
     }
     
 }
