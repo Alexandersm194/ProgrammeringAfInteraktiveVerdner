@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9842607e-3b14-4a41-8582-499e7ab29697" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PAI3DV/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PAI3DV/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/MonsterTruck.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/MonsterTruck.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseGate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseGate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnBikers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnBikers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StartScreenFade.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StartScreenFade.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Terrain/New Terrain 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Terrain/New Terrain 1.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +135,7 @@
       <workItem from="1763722609683" duration="4283000" />
       <workItem from="1763756604862" duration="9194000" />
       <workItem from="1763808663338" duration="8622000" />
-      <workItem from="1764188410297" duration="3680000" />
+      <workItem from="1764188410297" duration="4430000" />
     </task>
     <servers />
   </component>
