@@ -12,6 +12,8 @@ public class BaseGate : MonoBehaviour
 
 
     [SerializeField] private float openSpeed = 1f;    
+    
+    [SerializeField] private AudioSource gateSound;
     private bool open = false;
 
     private float leftT = 0f;
@@ -20,14 +22,19 @@ public class BaseGate : MonoBehaviour
     public void OpenGate()
     {
         open = true;
+        gateSound.Play();
     }
     void Update()
     {
-        if(open){MoveGate();}
+        if (open)
+        {
+            MoveGate(); 
+        }
     }
 
     public void MoveGate()
     {
+        
         leftT += openSpeed * Time.deltaTime;
         rightT += openSpeed * Time.deltaTime;
                 

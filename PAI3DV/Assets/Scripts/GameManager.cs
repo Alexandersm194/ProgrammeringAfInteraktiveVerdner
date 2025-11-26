@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource bikerSound;
 
     [Header("Triggers")] [SerializeField] private GameObject endCollider;
+    [SerializeField] private GameObject thirdPhaseBikerTrigger;
     
     
     [Header("Factory Settings")]
@@ -69,13 +70,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         pausePanel.SetActive(false);
     }
-
-    private enum GameState
-    {
-        Paused, Intro, DriveToCanyon, BikerAttack, FuelUp, RamTruckAttack, End
-    }
     
-    [SerializeField] private GameState gameState = GameState.Paused;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
@@ -158,15 +153,14 @@ public class GameManager : MonoBehaviour
         fuelText.text = "Delivering fuelpod!";
         yield return new WaitForSeconds(tracktorBeamDownSpeed);
         tracktorBeamDown.SetActive(false);
-        fuelText.text = "Transaction completed! Return to base";
         compass.NewObjectiveText();
         compass.SetTarget(baseGate.transform);
         factoryEventTrigger.gameObject.SetActive(false);
-        yield return new WaitForSeconds(2f);
         factoryCanvas.SetActive(false);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(1f);
         RamTruckAttack();
         spawnBikers.Spawn2ndPhase();
+        thirdPhaseBikerTrigger.gameObject.SetActive(true);
     }
 
     public void RamTruckAttack()

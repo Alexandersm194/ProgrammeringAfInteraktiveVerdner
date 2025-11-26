@@ -10243,7 +10243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3b0a15f3d906e4b8c953c286bd13ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 100
   playerTarget: {fileID: 0}
   explosionParticles:
   - {fileID: 7458090766268772760}
@@ -20741,11 +20741,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1225783256558284393, guid: c92d04ec1f670ad46bac9b2bf26db14c, type: 3}
       propertyPath: m_Value
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1225783256558284393, guid: c92d04ec1f670ad46bac9b2bf26db14c, type: 3}
       propertyPath: m_MaxValue
-      value: 200
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225783256558284393, guid: c92d04ec1f670ad46bac9b2bf26db14c, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4865640521214057166, guid: c92d04ec1f670ad46bac9b2bf26db14c, type: 3}
       propertyPath: m_AnchorMax.x

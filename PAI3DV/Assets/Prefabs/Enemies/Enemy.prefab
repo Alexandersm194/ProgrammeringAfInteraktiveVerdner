@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a6753b566fdf8469c317224e446f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 30
   spine: {fileID: 245050182975814309}
   agent: {fileID: 5073982628575666193}
   explosion: {fileID: 6053563098094095573, guid: 5054125d27c59634a93e057493526c7d, type: 3}
@@ -1266,7 +1266,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 17a71adcfe671e44a8cd3a806dcb92ad, type: 3}
   m_Resource: {fileID: 8300000, guid: 17a71adcfe671e44a8cd3a806dcb92ad, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.786
+  m_Volume: 0.571
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3582,11 +3582,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1225783256558284393, guid: c92d04ec1f670ad46bac9b2bf26db14c, type: 3}
       propertyPath: m_Value
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1225783256558284393, guid: c92d04ec1f670ad46bac9b2bf26db14c, type: 3}
       propertyPath: m_MaxValue
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4865640521214057166, guid: c92d04ec1f670ad46bac9b2bf26db14c, type: 3}
       propertyPath: m_AnchorMax.x
